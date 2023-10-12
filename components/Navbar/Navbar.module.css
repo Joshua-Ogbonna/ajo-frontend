@@ -1,0 +1,40 @@
+.navbar__module {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 100px;
+    font-family: var(--font-serif);
+    color: #eaefef;
+    background-color: #053339;
+}
+.navbar__module .brand {
+    font-size: 24px;
+}
+.navbar__module .mid {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.navbar__module .mid a {
+    font-size: 14px;
+    color: #eaefef;
+    text-decoration: none;
+}
+/* .navbar__module button {
+
+} */
+@media screen and (max-width: 1000px) {
+    .navbar__module {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .navbar__module .mid {
+        display:  none;
+    }
+    .navbar__module p {
+        width: 100%;
+    }
+
+}

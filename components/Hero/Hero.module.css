@@ -1,0 +1,82 @@
+.hero__module {
+  padding: 100px;
+  text-align: center;
+  background-color: #053339;
+}
+
+.hero__module h5 {
+  font-size: 14px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8); /* Text color with transparency */
+  background: rgba(0, 0, 0, 0.4); /* Background color with transparency */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Border color with transparency */
+  padding: 10px 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  width: 500px;
+  margin: auto;
+  font-family: var(--font-inter);
+}
+
+.hero__module h1 {
+    width: 900px;
+    font-size: 60px;
+    text-transform: capitalize;
+    color: #eaefef;
+    font-family: var(--font-serif);
+    margin: 20px auto;
+}
+.hero__module p {
+    width: 600px;
+    margin: auto;
+    font-family: var(--font-inter);
+    font-size: 15px;
+    color: #eaefef;
+}
+.hero__module .actions {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.hero__module .actions button {
+    width: 200px;
+    height: 60px;
+    background-color: #f4f23a;
+    border-radius: 5px;
+    color: #506e38;
+    font-family: var(--font-inter);
+    font-weight: 600;
+}
+.hero__module .actions button:nth-child(2) {
+    background-color: #d1eff1;
+    color: #1e4a4e;
+}
+.hero__module .spanned {
+    margin-top: 40px;
+    font-size: 14px;
+    font-family: var(--font-serif);
+    color: #eaefef;
+}
+
+@media screen and (max-width: 1000px) {
+    .hero__module {
+        padding: 100px 20px;
+    }
+    .hero__module h1 {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .hero__module h5, .hero__module p {
+        width: 100%;
+    }
+    .hero__module h5 {
+        padding: 10px 0;
+    }
+    .hero__module .actions {
+        flex-wrap: wrap;
+    }
+}

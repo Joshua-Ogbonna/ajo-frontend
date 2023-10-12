@@ -1,0 +1,24 @@
+.questions__module {
+    background-color: #f9f9f8;
+    padding: 100px;
+}
+.questions__module .question {
+    cursor: pointer;
+    font-family: var(--font-serif);
+    font-size: 24px;
+    color: #053339;
+    padding: 20px 0;
+}
+.questions__module .answer {
+    font-size: 16px;
+    /* width: 700px; */
+    padding: 20px 0;
+    color: #053339;
+    font-family: var(--font-inter); 
+}
+
+@media screen and (max-width: 1000px) {
+    .questions__module {
+        padding: 100px 20px;
+    }
+}
