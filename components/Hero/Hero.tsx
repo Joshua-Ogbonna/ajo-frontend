@@ -9,12 +9,12 @@ const Hero = () => {
       <h1>Explore AjoDAO, where your financial goals take center stage</h1>
       <p>
         {" "}
-        Whether it's buying, saving, or investing, our specialized money circles
+        {`Whether it's buying, saving, or investing, our specialized money circles
         are designed to meet your unique needs, delivering the highest returns
-        on your savings.
+        on your savings.`}
       </p>
       <div className={styles.actions}>
-        <button onClick={() => alert("Hello World")}>Join Waitlist</button>
+        <button>Join Waitlist</button>
         <button>Launch Demo</button>
       </div>
 
