@@ -48,6 +48,7 @@
     color: #506e38;
     font-family: var(--font-inter);
     font-weight: 600;
+    cursor: pointer;
 }
 .hero__module .actions button:nth-child(2) {
     background-color: #d1eff1;
