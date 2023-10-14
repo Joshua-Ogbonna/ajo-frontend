@@ -193,12 +193,12 @@ const Pot = () => {
                 <div>
                   <h5>Pot Contributions:</h5>{" "}
                   <p>
-                    You agree to make regular contributions to the pot as
-                    specified in the pot's rules.
+                   {` You agree to make regular contributions to the pot as
+                    specified in the pot's rules.`}
                   </p>{" "}
                   <p>
-                    Contributions must be made on time and in accordance with
-                    the pot's payment schedule.
+                    {`Contributions must be made on time and in accordance with
+                    the pot's payment schedule.`}
                   </p>
                 </div>
                 <div>
@@ -211,10 +211,10 @@ const Pot = () => {
                 <div>
                   <h5>Withdrawals:</h5>{" "}
                   <p>
-                    You can request to withdraw your contributions and earnings
+                    {`You can request to withdraw your contributions and earnings
                     in accordance with the pot's rules. - Withdrawals may be
                     subject to fees or penalties as specified in the pot's
-                    rules.
+                    rules.`}
                   </p>
                 </div>
               </div>
