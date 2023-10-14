@@ -4,7 +4,7 @@ import styles from "./Features.module.css";
 
 const features = [
   {
-    title: "Decentralized, Trusted, and Secured",
+    title: "Decentralized and Trusted",
     feature:
       "AjaDAO operates on the Solana blockchain, ensuring decentralization and eliminating the need for intermediaries.",
   },
@@ -14,7 +14,7 @@ const features = [
       "AjaDAO is governed by its community members, allowing for collective decision-making and ensuring fairness.",
   },
   {
-    title: "Secure and Auditable",
+    title: "Secured and Auditable",
     feature:
       "All transactions and pot activities are recorded on the Solana blockchain, providing transparency and security.",
   },
