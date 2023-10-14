@@ -16,7 +16,7 @@ const Hero = () => {
 
   return (
     <div className={styles.hero__module}>
-      <h5>AjoDAO: Your Financial Journey, Tailored for Success</h5>
+      <h5>AjoDAO: Building Trust, Growing Prosperity</h5>
       <h1>Explore AjoDAO, where your financial goals take center stage</h1>
       <p>
         {" "}
