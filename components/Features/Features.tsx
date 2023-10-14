@@ -4,7 +4,7 @@ import styles from "./Features.module.css";
 
 const features = [
   {
-    title: "Decentralized and Trustless",
+    title: "Decentralized, Trusted, and Secured",
     feature:
       "AjaDAO operates on the Solana blockchain, ensuring decentralization and eliminating the need for intermediaries.",
   },
@@ -29,9 +29,9 @@ const Features = () => {
   return (
     <div className={styles.features__module} id="#features">
       <div className={styles.head}>
-        <h3>Designed to help you earn.</h3>
+        <h3>Designed for Financial Freedom</h3>
         <p>
-          At AjoDAO, our suite of powerful features is purposefully crafted to
+          At AjoDAO, our suite of powerful features are purposefully crafted to
           enhance your financial journey
         </p>
       </div>
