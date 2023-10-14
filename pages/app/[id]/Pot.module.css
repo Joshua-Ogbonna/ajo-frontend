@@ -1,0 +1,65 @@
+.pot__module {
+  padding: 50px 100px;
+}
+.pot__module .head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.pot__module .head h5 {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  color: var(--bg-color);
+}
+.pot__module .head .pot__details {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.pot__module .head .pot__details div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  font-family: var(--font-inter);
+}
+.pot__module .head button {
+  width: 150px;
+  height: 40px;
+  background-color: var(--bg-color);
+  color: #fff;
+  font-family: var(--font-inter);
+  border-radius: 4px;
+  font-size: 14px;
+}
+.pot__module .description {
+    margin: 40px 0;
+    font-family: var(--font-inter);
+    font-size: 14px;
+    font-weight: 400;
+    width: 800px;
+}
+.pot__module .description h5, .pot__module .terms h3 {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.pot__module .terms {
+    width: 700px;
+}
+.pot__module .terms .rules .pre {
+    font-family: var(--font-inter);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.pot__module .terms .rules div {
+    margin-bottom: 20px;
+}
+.pot__module .terms .rules div h5 {
+    font-size: 16px;
+    font-family: var(--font-serif);
+}
+.pot__module .terms .rules div p {
+    font-size: 14px;
+    font-family: var(--font-inter);
+}

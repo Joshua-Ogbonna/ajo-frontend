@@ -3,6 +3,7 @@
 :root {
   --font-inter: 'Inter', sans-serif;
   --font-serif: 'Young Serif', serif;
+  --bg-color: #053339;
 }
 * {
   margin: 0;

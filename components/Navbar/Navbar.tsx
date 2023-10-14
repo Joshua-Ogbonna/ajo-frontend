@@ -1,26 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 
-import styles from "./Navbar.module.css"
-import Link from 'next/link'
+import styles from "./Navbar.module.css";
 
 const Navbar = () => {
-  return (
-    <div className={styles.navbar__module}>
-        <div className={styles.brand}>
-            AjoDAO.
-        </div>
+  const router = useRouter();
+  const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setMounted(true)
+    }
+  }, [])
 
-        <div className={styles.mid}>
+  return (
+    mounted && (
+      <div className={styles.navbar__module}>
+        <div className={styles.brand}>AjoDAO.</div>
+
+        {router.pathname === "/" ? (
+          <div className={styles.mid}>
             <Link href="/">Home</Link>
             <Link href="/#features">Features</Link>
             <Link href="/#faqs">FAQs</Link>
-        </div>
+          </div>
+        ) : (
+          <div className={styles.mid}>
+            {mounted ? <WalletMultiButton /> : null}
+          </div>
+        )}
+      </div>
+    )
+  );
+};
 
-        {/* <button>
-            Launch App
-        </button> */}
-    </div>
-  )
-}
-
-export default Navbar
+export default Navbar;

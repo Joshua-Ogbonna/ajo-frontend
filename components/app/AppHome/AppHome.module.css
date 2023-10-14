@@ -1,0 +1,81 @@
+.app__home .head__home {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.app__home .head__home h5 {
+  font-size: 16px;
+  font-family: var(--font-serif);
+}
+.app__home .head__home button {
+  border: 1px solid var(--bg-color);
+  width: 200px;
+  border-radius: 4px;
+  color: var(--bg-color);
+  height: 40px;
+  font-family: var(--font-inter);
+  font-weight: 600;
+  font-size: 14px;
+}
+.app__home .pots {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  gap: 40px;
+}
+.app__home .pots .pot {
+  width: 400px;
+  /* height: 200px; */
+  padding: 20px;
+  font-family: var(--font-inter);
+  background-color: #fff;
+  position: relative;
+  border-radius: 4px;
+  box-shadow: 44px 34px 71px 35px rgba(245, 245, 245, 0.88);
+}
+.app__home .pots .pot .pot__action {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+.app__home .pots .pot .pot__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.app__home .pots .pot .pot__head h5 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+}
+.app__home .pots .pot .pot__head .pot__status {
+  font-size: 13px;
+  font-weight: 400;
+}
+.app__home .pots .pot .pot__head .open {
+  color: #fba1b7;
+}
+.app__home .pots .pot__description {
+  font-size: 14px;
+  margin: 20px 0;
+}
+.app__home .pots .contri__details {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.app__home .pots .pot .pot__action button {
+  padding: 8px 18px;
+  font-family: inherit;
+  font-size: 13px;
+  border: 1px solid var(--bg-color);
+  border-radius: 4px;
+  color: var(--bg-color);
+  font-weight: 600;
+  display: none;
+}
+.app__home .pots .pot:hover button {
+  display: block;
+}
