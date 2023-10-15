@@ -5,13 +5,14 @@ import Head from "next/head";
 import { useParams } from "next/navigation";
 import React, { useContext, useEffect, useState } from "react";
 import { BiCalendar, BiDollar, BiFlag, BiUser } from "react-icons/bi";
-
-import styles from "./Pot.module.css";
+import { BN } from "@project-serum/anchor";
 import { PublicKey, SystemProgram } from "@solana/web3.js";
-import { potPDA, vaultPDA } from "@/utils/program";
-import { PotAccount } from "@/types";
 import { Icon, Spinner, useToast } from "@chakra-ui/react";
 import { useAnchorWallet } from "@solana/wallet-adapter-react";
+
+import styles from "./Pot.module.css";
+import { potPDA, vaultPDA } from "@/utils/program";
+import { PotAccount } from "@/types";
 import { confirmTx } from "@/utils/helper";
 
 const Pot = () => {
@@ -60,12 +61,56 @@ const Pot = () => {
         isClosable: true,
         duration: 2000,
       });
-      fetchPot()
+      fetchPot();
     } catch (error) {
       console.log(error);
       return toast({
         title: "Error",
         description: "Error joining pot",
+        status: "error",
+        isClosable: true,
+        duration: 2000,
+      });
+    } finally {
+      setLoader(null);
+    }
+  };
+
+  const depositIntoPot = async () => {
+    setLoader("deposit-into-pot");
+    const pot = await getPotPDA();
+    const vault = await vaultPDA(pot as PublicKey);
+
+    try {
+      const tx = await program?.methods
+        .deposit(
+          new BN(Number(singlePot.contributionAmount) * 1000000000),
+          singlePot.name,
+          singlePot.creator
+        )
+        .accounts({
+          pot,
+          payer: wallet?.publicKey,
+          members: profilePDA as PublicKey,
+          vault,
+          systemProgram: SystemProgram.programId,
+        })
+        .rpc();
+
+      await confirmTx(tx as unknown as string, connection);
+      toast({
+        title: "Success",
+        description: "Deposit into pot successful",
+        status: "success",
+        isClosable: true,
+        duration: 2000,
+      });
+      fetchPot();
+    } catch (error) {
+      console.log(error);
+      return toast({
+        title: "Error",
+        description: "Error depositing to pot",
         status: "error",
         isClosable: true,
         duration: 2000,
@@ -133,7 +178,7 @@ const Pot = () => {
                   <div>
                     {" "}
                     <Icon as={BiDollar} />{" "}
-                    {Number(singlePot.contributionAmount)/1000000000} SOL{" "}
+                    {Number(singlePot.contributionAmount) / 1000000000} SOL{" "}
                   </div>
                   <div>
                     {" "}
@@ -148,13 +193,25 @@ const Pot = () => {
                   </div>
                 </div>
               </div>
-              <button onClick={handleJoinPot}>
-                {loader === "join-pot" ? (
+              <button
+                onClick={
+                  singlePot &&
+                  singlePot.members &&
+                  singlePot.members.some(
+                    (e) => e.toBase58() === wallet?.publicKey.toBase58()
+                  )
+                    ? depositIntoPot
+                    : handleJoinPot
+                }
+              >
+                {loader === "join-pot" || loader === "deposit-into-pot" ? (
                   <Spinner />
                 ) : singlePot &&
                   singlePot.members &&
-                  singlePot.members.some((e) => e.toBase58() === wallet?.publicKey.toBase58()) ? (
-                  "Member"
+                  singlePot.members.some(
+                    (e) => e.toBase58() === wallet?.publicKey.toBase58()
+                  ) ? (
+                  "Deposit"
                 ) : (
                   "Join Pot"
                 )}
@@ -193,7 +250,7 @@ const Pot = () => {
                 <div>
                   <h5>Pot Contributions:</h5>{" "}
                   <p>
-                   {` You agree to make regular contributions to the pot as
+                    {` You agree to make regular contributions to the pot as
                     specified in the pot's rules.`}
                   </p>{" "}
                   <p>
