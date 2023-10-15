@@ -84,7 +84,7 @@ const Pot = () => {
     try {
       const tx = await program?.methods
         .deposit(
-          new BN(Number(singlePot.contributionAmount) * 1000000000),
+          new BN(Number(singlePot.contributionAmount)),
           singlePot.name,
           singlePot.creator
         )
