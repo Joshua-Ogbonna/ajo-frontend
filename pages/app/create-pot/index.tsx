@@ -7,7 +7,7 @@ import { Input, Select, Spinner, useToast } from "@chakra-ui/react";
 import { AppContextData } from "@/contexts/AppContext";
 import { useAnchorWallet } from "@solana/wallet-adapter-react";
 import { potPDA, vaultPDA } from "@/utils/program";
-import { PublicKey, SystemProgram } from "@solana/web3.js";
+import { LAMPORTS_PER_SOL, PublicKey, SystemProgram } from "@solana/web3.js";
 import { BN } from "@project-serum/anchor";
 import { confirmTx } from "@/utils/helper";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
@@ -57,7 +57,9 @@ const CreatePot = () => {
         : pot.cycle === "Weekly"
         ? { weekly: {} }
         : { month: {} };
-    let contribution_amount = new BN(pot.contribution_amount * 1000000000);
+    let contribution_amount: BN = new BN(pot.contribution_amount).mul(
+      new BN(LAMPORTS_PER_SOL)
+    );
     let created_at = Date.now().toString();
     // { daily: {} } | { weekly: {} } | { monthly: {} };
     setLoader(true);
