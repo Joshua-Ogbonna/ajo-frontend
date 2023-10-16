@@ -6,7 +6,7 @@ import { useParams } from "next/navigation";
 import React, { useContext, useEffect, useState } from "react";
 import { BiCalendar, BiDollar, BiFlag, BiUser } from "react-icons/bi";
 import { BN } from "@project-serum/anchor";
-import { PublicKey, SystemProgram } from "@solana/web3.js";
+import { LAMPORTS_PER_SOL, PublicKey, SystemProgram } from "@solana/web3.js";
 import { Icon, Spinner, useToast } from "@chakra-ui/react";
 import { useAnchorWallet } from "@solana/wallet-adapter-react";
 
@@ -81,10 +81,12 @@ const Pot = () => {
     const pot = await getPotPDA();
     const vault = await vaultPDA(pot as PublicKey);
 
+    const number = Number(singlePot.contributionAmount) / 1000000000
+    console.log(number)
     try {
       const tx = await program?.methods
         .deposit(
-          new BN(Number(singlePot.contributionAmount)),
+          new BN(number).mul(new BN(LAMPORTS_PER_SOL)),
           singlePot.name,
           singlePot.creator
         )
@@ -179,6 +181,13 @@ const Pot = () => {
                     {" "}
                     <Icon as={BiDollar} />{" "}
                     {Number(singlePot.contributionAmount) / 1000000000} SOL{" "}
+                    <span>Contribution Amount</span>
+                  </div>
+                  <div>
+                    {" "}
+                    <Icon as={BiDollar} />{" "}
+                    {Number(singlePot.totalAmount) / 1000000000} SOL{" "}
+                    <span>Total Pot Amount</span>
                   </div>
                   <div>
                     {" "}
