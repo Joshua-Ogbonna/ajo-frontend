@@ -25,7 +25,7 @@ const Hero = () => {
       </p>
       <div className={styles.actions}>
         <button onClick={handleJoinWaitlist}>Join Waitlist</button>
-        {/* <button onClick={() => router.push("/app")}>Launch Demo</button> */}
+        <button onClick={() => router.push("/app")}>Launch Demo</button>
       </div>
 
       <div className={styles.spanned}>#1 Thrift App. First On Solana</div>
