@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     mounted && (
       <div className={styles.navbar__module}>
-        <div className={styles.brand}>AjoDAO.</div>
+        <div className={styles.brand} onClick={() => router.push("/")}>AjoDAO.</div>
 
         {router.pathname === "/" ? (
           <div className={styles.mid}>
